@@ -27,20 +27,36 @@
 
     <title abbrev="Network coding and satellites">Network coding and satellites</title>
    
-    <author role="editor" fullname="TBD" initials="TBD" surname="">
-      <organization></organization>
+    <author role="editor" fullname="Nicolas Kuhn" initials="N" surname="Kuhn">
+      <organization>CNES</organization>
       <address>
         <postal>
-          <street></street>
-          <city></city>
+          <street>18 Avenue Edouard Belin</street>
+          <city>Toulouse</city>
           <region></region>
-          <code></code>
-          <country></country>
+          <code>31400</code>
+          <country>France</country>
         </postal>
-        <phone></phone>
-        <email></email>
+        <phone>0033561273213</phone>
+        <email>nicolas.kuhn@cnes.fr</email>
       </address>
     </author>
+   
+    <author role="editor" fullname="Emmanuel Lochin" initials="E" surname="Lochin">
+      <organization>ISAE</organization>
+      <address>
+        <postal>
+          <street>10 Avenue Edouard Belin</street>
+          <city>Toulouse</city>
+          <region></region>
+          <code>31400</code>
+          <country>France</country>
+        </postal>
+        <phone></phone>
+        <email>emmanuel.lochin@isae.fr</email>
+      </address>
+    </author>
+
 
     
     <date month="June" year="2017" />
@@ -115,14 +131,14 @@
         <!-- ######################################################-->
         
         <section anchor="sec:sat_topo" title="A note on satellite topology">
-          <t>The objective of this section of to provide a generic description of the components composing a generic satellite system and their interaction.</t>
+        <t>The objective of this section of to provide a generic description of the components composing a generic satellite system and their interaction.</t>
 
 	<section anchor="subsec:sat_topo_multigateway" title="Generic description of multi-gateway satellite networks">
-          <t>This subsection presents a high level description of a multi-gateway satellite network.</t>
+        <t>This subsection presents a high level description of a multi-gateway satellite network.</t>
 	</section>
 
 	<section anchor="subsec:sat_topo_gateway" title="Focus on satellite gateway description">
-          <t>This subsection focuses on the description of the functions that take place in a generic satellite gateway.</t>
+        <t>This subsection focuses on the description of the functions that take place in a generic satellite gateway.</t>
 	</section>
 
 	</section>
@@ -160,8 +176,8 @@
         <!-- ######################################################-->
         
         <section anchor="sec:opportunities_network_coding" title="Opportunities for more network coding in satellite systems">
-          <t>This section extends <xref target="sec:existing_network_coding"> </xref> by presenting the opportunities for more network codnig in satellite systems.</t>
-
+        <t>This section extends <xref target="sec:existing_network_coding"> </xref> by presenting the opportunities for more network coding in satellite systems.</t>
+	<t> .</t>
 	</section>
 
         <!-- ######################################################-->
