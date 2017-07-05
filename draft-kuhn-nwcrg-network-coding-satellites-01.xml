@@ -57,8 +57,36 @@
       </address>
     </author>
 
+   <author role="" fullname="Harald Skinnemoen" initials="H" surname="Skinnemoen">
+      <organization>AnsuR Technologies</organization>
+      <address>
+        <postal>
+          <street>Martin Linges Vei 25</street>
+          <city>Fornebu</city>
+          <region></region>
+          <code>1364</code>
+          <country>Norway</country>
+        </postal>
+        <phone></phone>
+        <email>harald@ansur.no</email>
+      </address>
+    </author>
 
-    
+   <author role="" fullname="Samah Ghanem" initials="S" surname="Ghanem">
+      <organization>Independant</organization>
+      <address>
+        <postal>
+          <street></street>
+          <city></city>
+          <region></region>
+          <code></code>
+          <country></country>
+        </postal>
+        <phone></phone>
+        <email>samah.ghanem@gmail.com</email>
+      </address>
+    </author>
+	  
     <date month="June" year="2017" />
 
     <!-- If the month and year are both specified and are the current ones, xml2rfc will fill 
