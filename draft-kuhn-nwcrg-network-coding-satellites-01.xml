@@ -72,22 +72,52 @@
       </address>
     </author>
 
-   <author role="" fullname="Samah Ghanem" initials="S" surname="Ghanem">
-      <organization>Independant</organization>
+   <author role="" fullname="Samah A. M. Ghanem" initials="S" surname="Ghanem">
+      <organization>Independent Senior Researcher</organization>
+      <address>
+        <postal>
+          <street></street>
+          <city>West Bank</city>
+          <region></region>
+          <code></code>
+          <country>Palestine</country>
+        </postal>
+        <phone></phone>
+        <email>samah.ghanem@gmail.com</email>
+      </address>
+    </author>
+	 
+   <author role="" fullname="Josu Bilbao" initials="J" surname="Bilbao">
+      <organization>Ikerlan</organization>
       <address>
         <postal>
           <street></street>
           <city></city>
           <region></region>
           <code></code>
-          <country></country>
+          <country>Spain</country>
         </postal>
         <phone></phone>
-        <email>samah.ghanem@gmail.com</email>
+        <email>JBilbao@ikerlan.es</email>
       </address>
     </author>
 	  
-    <date month="June" year="2017" />
+   <author role="" fullname="Goiuri Peralta" initials="G" surname="Peralta">
+      <organization>Ikerlan</organization>
+      <address>
+        <postal>
+          <street></street>
+          <city></city>
+          <region></region>
+          <code></code>
+          <country>Spain</country>
+        </postal>
+        <phone></phone>
+        <email>gperalta@ikerlan.es</email>
+      </address>
+    </author>
+	  
+    <date month="July" year="2017" />
 
     <!-- If the month and year are both specified and are the current ones, xml2rfc will fill 
          in the current day for you. If only the current year is specified, xml2rfc will fill 
