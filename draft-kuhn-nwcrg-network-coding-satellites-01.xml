@@ -57,7 +57,7 @@
       </address>
     </author>
 
-   <author role="" fullname="Harald Skinnemoen" initials="H" surname="Skinnemoen">
+   <author fullname="Harald Skinnemoen" initials="H" surname="Skinnemoen">
       <organization>AnsuR Technologies</organization>
       <address>
         <postal>
@@ -72,7 +72,7 @@
       </address>
     </author>
 
-   <author role="" fullname="Samah A. M. Ghanem" initials="S" surname="Ghanem">
+   <author fullname="Samah A. M. Ghanem" initials="S" surname="Ghanem">
       <organization>Independent Senior Researcher</organization>
       <address>
         <postal>
@@ -87,7 +87,7 @@
       </address>
     </author>
 	 
-   <author role="" fullname="Josu Bilbao" initials="J" surname="Bilbao">
+   <author fullname="Josu Bilbao" initials="J" surname="Bilbao">
       <organization>Ikerlan</organization>
       <address>
         <postal>
@@ -102,7 +102,7 @@
       </address>
     </author>
 	  
-   <author role="" fullname="Goiuri Peralta" initials="G" surname="Peralta">
+   <author fullname="Goiuri Peralta" initials="G" surname="Peralta">
       <organization>Ikerlan</organization>
       <address>
         <postal>
@@ -117,7 +117,7 @@
       </address>
     </author>
 	  
-    <date month="July" year="2017" />
+    <date month="October" year="2017" />
 
     <!-- If the month and year are both specified and are the current ones, xml2rfc will fill 
          in the current day for you. If only the current year is specified, xml2rfc will fill 
@@ -189,15 +189,47 @@
         <!-- ######################################################-->
         
         <section anchor="sec:sat_topo" title="A note on satellite topology">
-        <t>The objective of this section of to provide a generic description of the components composing a generic satellite system and their interaction.</t>
+        <t>The objective of this section of to provide a generic description of the components composing a generic satellite system and their interaction. It provides a high level description of a multi-gateway satellite network. <xref target="fig:sat_gateway"></xref> shows a example of a multigateway satellite system. It is worth pointing out that some functionnal blocks aggregate the traffic coming from multiple users, and thus are opportunity for including network coding.</t>
 
-	<section anchor="subsec:sat_topo_multigateway" title="Generic description of multi-gateway satellite networks">
-        <t>This subsection presents a high level description of a multi-gateway satellite network.</t>
-	</section>
-
-	<section anchor="subsec:sat_topo_gateway" title="Focus on satellite gateway description">
-        <t>This subsection focuses on the description of the functions that take place in a generic satellite gateway.</t>
-	</section>
+	<figure anchor="fig:sat_gateway" title="Data plane functions in a generic satellite multi-gateway system">
+        <artwork> 
++---------------------+ 
+| Application servers | 
++---------------------+  
+       |     |   |
+       |     |   |
+       -----------------------------------
+       v     v   v             v   v     v
++------------------+         +------------------+ 
+| network function |         | network function | 
+| (firewall, PEP)  |         | (firewall, PEP)  | 
++------------------+         +------------------+ 
+    |  |                        |        |
+    |  | IP packets             |        |
+    v  v                        v        v
++------------------+         +------------------+ 
+| access gateway   |         | access gateway   |
++------------------+         +------------------+ 
+       |                                 |
+       | BBFrames                        |
+       v                                 v
++------------------+         +------------------+ 
+| physical gateway |         | physical gateway |
++------------------+         +------------------+
+       |                                 |
+       | PLFrames                        |
+       v                                 v
++------------------+         +------------------+ 
+| outdoor unit     |         | outdoor unit     |
++------------------+         +------------------+
+   |   |                         |       |
+   |   | Satellite link          |       |
+   v   v                         v       v
++------------------+         +------------------+ 
+| terminals        |         | terminals        |
++------------------+         +------------------+
+	</artwork>
+        </figure>
 
 	</section>
 
@@ -208,20 +240,21 @@
         <section anchor="sec:existing_network_coding" title="Status of network coding in actually deployed satellite systems">
         <t> </t>
 	<t><xref target="fig:existing_network"></xref> presents the status of the network coding deployment in satellite systems. The information is based on the taxonomy document <xref target="I-D.irtf-nwcrg-network-coding-taxonomy"> </xref> and the notations are the following: End-to-End Coding (E2E), Network Coding (NC), Intra-Flow Coding (IntraF), Inter-Flow Coding (InterF), Single-Path Coding (SP)  and Multi-Path Coding (MP).</t>
+        <t>X1 embodies the source coding that could be used at application level for video streaming on a broadband access. X2 embodies the physical layer that is applied on the PLFRAME to have an optimal usage of the satellite capacity.</t>
 	<figure anchor="fig:existing_network" title="Network coding and satellite systems">
         <artwork>
 +------+-------+---------+---------------+-------+
-+      | Upper | Middle  | Communication layers  |
-+      | Appl. | ware    |                       |
+|      | Upper | Middle  | Communication layers  |
+|      | Appl. | ware    |                       |
 +      +-------+---------+---------------+-------+
 |      |Source | Network | Packetization | PHY   |
 |      |coding | AL-FEC  | UDP/IP        | layer |
 +------+-------+---------+---------------+-------+
-|E2E   |   x   |         |               |       |
-|NC    |       |         |               |   x   |
-|IntraF|       |         |               |       |
-|InterF|       |         |               |       |
-|SP    |       |         |               |       |
+|E2E   |   X1  |         |               |       |
+|NC    |       |         |               |       |
+|IntraF|   X1  |         |               |       |
+|InterF|       |         |               |   X2  |
+|SP    |   X1  |         |               |   X2  |
 |MP    |       |         |               |       |
 +------+-------+---------+---------------+-------+
 	</artwork>
@@ -235,7 +268,34 @@
         
         <section anchor="sec:opportunities_network_coding" title="Opportunities for more network coding in satellite systems">
         <t>This section extends <xref target="sec:existing_network_coding"> </xref> by presenting the opportunities for more network coding in satellite systems.</t>
-	<t> .</t>
+	<t>These opportunities are further detailed in <xref target="sec:use_cases"> </xref> and listed in this section: <list style="symbols">
+	<t> (1) two way relay channel mode;</t>
+	<t> (2) reliable multicast;</t>
+	<t> (3) improving random access;</t>
+	<t> (4) network coding and hybrid access;</t>
+	</list></t>	
+
+        <t> We propose to include some of the identified opportunities in the <xref target="fig:opportunities"></xref>.</t>
+	<figure anchor="fig:opportunities" title="Opportunites for more network coding and satellite systems">
+        <artwork>
++------+-------+---------+---------------+-------+
+|      | Upper | Middle  | Communication layers  |
+|      | Appl. | ware    |                       |
++      +-------+---------+---------------+-------+
+|      |Source | Network | Packetization | PHY   |
+|      |coding | AL-FEC  | UDP/IP        | layer |
++------+-------+---------+---------------+-------+
+|E2E   |X1     |         |         (4)   |       |
+|NC    |       |(1)      |(1)(2)(3)(4)   |       |
+|IntraF|X1     |         |   (2)   (4)   |       |
+|InterF|       |(1)      |(1)   (3)      |X2     |
+|SP    |X1     |(1)      |(1)   (3)      |X2     |
+|MP    |       |         |   (2)         |       |
++------+-------+---------+---------------+-------+
+	</artwork>
+        </figure>
+        <t>Opportunities for more network coding in SATCOM seems to be more relevant at the middle ware or at the communication layer levels.</t> 
+ 
 	</section>
 
         <!-- ######################################################-->
