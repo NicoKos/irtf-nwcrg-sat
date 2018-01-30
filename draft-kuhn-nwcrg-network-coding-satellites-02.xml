@@ -283,6 +283,7 @@
 	<t> (3) improving random access (more details in <xref target="subsec:impro-rnd"> </xref>);</t>
 	<t> (4) hybrid access (more details in <xref target="subsec:hybrid"> </xref>);</t>
 	<t> (5) Performance Enhanced Proxie (more details in <xref target="subsec:pep"> </xref>);</t>
+	<t> (6) Dealing with varying capacity (more details in <xref target="subsec:varying"> </xref>);</t>
 	</list></t>	
 
         <t> We propose to include some of the identified opportunities in the <xref target="fig:opportunities"></xref>.</t>
@@ -318,6 +319,23 @@
 
        	<section anchor="subsec:two-way" title="Two way relay channel mode">
 	<t>TBD</t>
+        <t> We propose an illustration of this scenario in <xref target="fig:two_way"></xref>.</t>
+        <figure anchor="fig:two_way" title="Network architecture for two way relay channel with NC">
+        <artwork>
++------------+        +-----+     +---------+
+| Satellite  |  A     |     | A   |         |
+| Terminal A |-->--|  |     |->---|         |
++------------+     |  |     |->---|         |
+    ||  A+B        ->-| SAT | B   | Gateway |
+    ==================|     |     |         |
+    ||             ->-|     |     |         |
++------------+  B  |>-|     |=====|         |
+| Satellite  |-->--|  |     | A+B |         |
+| Terminal B |        |     |     |         |
++------------+        +-----+     +---------+
+        </artwork>
+        </figure>
+
 	</section>	
 
        	<section anchor="subsec:rel-mul" title="Reliable multicast">
@@ -335,6 +353,11 @@
        	<section anchor="subsec:pep" title="Performance Enhanced Proxy">
 	<t>Related to the impact and integration of network coding in Proxy-Enhanced-Proxy <xref target="RFC3135">RFC&nbsp;3135</xref> architecture. In particular how network coding can be integrated inside a PEP with QoS scheduler as defined, for instance, in <xref target="RFC5865">RFC&nbsp;5865</xref>.</t>
 	</section>	
+
+       	<section anchor="subsec:varying" title="Dealing with varying capacity">
+	<t>TBD</t>
+	</section>	
+
 
 </section>
 
