@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+]>
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc strict="yes" ?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="4"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<rfc 
+	category="info" 
+        docName="draft-kuhn-nwcrg-network-coding-satellites-02"
+	ipr="trust200902">
+  <!-- category values: std, bcp, info, exp, and historic
+     ipr values: full3667, noModification3667, noDerivatives3667
+     you can add the attributes updates="NNNN" and obsoletes="NNNN" 
+     they will automatically be output with "(if approved)" -->
+
+  <!-- ***** FRONT MATTER ***** -->
+
+  <front>
+    <!-- The abbreviated title is used in the page header - it is only necessary if the 
+         full title is longer than 39 characters -->
+
+    <title abbrev="Network coding and satellites">Network coding and satellites</title>
+   
+    <author role="editor" fullname="Nicolas Kuhn" initials="N" surname="Kuhn">
+      <organization>CNES</organization>
+      <address>
+        <postal>
+          <street>18 Avenue Edouard Belin</street>
+          <city>Toulouse</city>
+          <region></region>
+          <code>31400</code>
+          <country>France</country>
+        </postal>
+        <phone>0033561273213</phone>
+        <email>nicolas.kuhn@cnes.fr</email>
+      </address>
+    </author>
+   
+    <author role="editor" fullname="Emmanuel Lochin" initials="E" surname="Lochin">
+      <organization>ISAE</organization>
+      <address>
+        <postal>
+          <street>10 Avenue Edouard Belin</street>
+          <city>Toulouse</city>
+          <region></region>
+          <code>31400</code>
+          <country>France</country>
+        </postal>
+        <phone></phone>
+        <email>emmanuel.lochin@isae.fr</email>
+      </address>
+    </author>
+
+   <author fullname="Harald Skinnemoen" initials="H" surname="Skinnemoen">
+      <organization>AnsuR Technologies</organization>
+      <address>
+        <postal>
+          <street>Martin Linges Vei 25</street>
+          <city>Fornebu</city>
+          <region></region>
+          <code>1364</code>
+          <country>Norway</country>
+        </postal>
+        <phone></phone>
+        <email>harald@ansur.no</email>
+      </address>
+    </author>
+
+   <author fullname="Samah A. M. Ghanem" initials="S" surname="Ghanem">
+      <organization>Independent Senior Researcher</organization>
+      <address>
+        <postal>
+          <street></street>
+          <city>West Bank</city>
+          <region></region>
+          <code></code>
+          <country>Palestine</country>
+        </postal>
+        <phone></phone>
+        <email>samah.ghanem@gmail.com</email>
+      </address>
+    </author>
+	 
+   <author fullname="Josu Bilbao" initials="J" surname="Bilbao">
+      <organization>Ikerlan</organization>
+      <address>
+        <postal>
+          <street></street>
+          <city></city>
+          <region></region>
+          <code></code>
+          <country>Spain</country>
+        </postal>
+        <phone></phone>
+        <email>JBilbao@ikerlan.es</email>
+      </address>
+    </author>
+	  
+   <author fullname="Goiuri Peralta" initials="G" surname="Peralta">
+      <organization>Ikerlan</organization>
+      <address>
+        <postal>
+          <street></street>
+          <city></city>
+          <region></region>
+          <code></code>
+          <country>Spain</country>
+        </postal>
+        <phone></phone>
+        <email>gperalta@ikerlan.es</email>
+      </address>
+    </author>
+	  
+    <date month="October" year="2017" />
+
+    <!-- If the month and year are both specified and are the current ones, xml2rfc will fill 
+         in the current day for you. If only the current year is specified, xml2rfc will fill 
+	 in the current day and month for you. If the year is not the current one, it is 
+	 necessary to specify at least a month (xml2rfc assumes day="1" if not specified for the 
+	 purpose of calculating the expiry date).  With drafts it is normally sufficient to 
+	 specify just the year. -->
+
+    <!-- Meta-data Declarations -->
+
+    <area>Transport</area>
+
+    <workgroup>Internet Engineering Task Force</workgroup>
+
+    <!-- WG name at the upperleft corner of the doc,
+         IETF is fine for individual submissions.  
+	 If this element is not present, the default is "Network Working Group",
+         which is used by the RFC Editor as a nod to the history of the IETF. -->
+
+    <keyword>template</keyword>
+
+    <!-- Keywords will be incorporated into HTML output
+         files in a meta tag but they have no effect on text or nroff
+         output. If you submit your draft to the RFC Editor, the
+         keywords will be used for the search engine. -->
+
+        <!-- ######################################################-->
+        <!-- ######################################################-->
+        <!-- Head of the document -->
+        <!-- ######################################################--> 
+        <!-- ######################################################--> 
+
+    <abstract>
+    <t>This memo presents the current deployment of network coding in some satellite telecommunications systems along with a discussion on the multiple opportunities to introduce these technics at a wider scale.</t>
+    </abstract>
+  </front>
+
+  <middle>
+
+	<section anchor="sec:introduction" title="Introduction">
+        <t>Network coding schemes are inherent part of the satellite systems, since the challenging physical layer require specific robustness to guarantee an efficient usage of the expensive radio resource. Further exploiting these schemes is an opportunity for a better end user experience along with a better exploitation of the scarce resource.</t>
+	<t>In this context, this memo aims at:</t>
+	<t><list style="symbols">
+	<t>summing up the current deployment of network coding schemes;</t>
+	<t>identifying opportunities for further usage of network coding in satellite systems.</t>
+	</list></t>	
+		
+	<section anchor="subsec:intro_glossary" title="Glossary">
+	<t>The glossary of this memo is related to the network coding taxonomy document <xref target="I-D.irtf-nwcrg-network-coding-taxonomy"> </xref>.</t> 
+	<t>The glossary is extended as follows:<list style="symbols">
+	<t>BBFRAME: Base-Band FRAME;</t>
+	<t>PLFRAME: Physical Layer FRAME;</t>
+        <t>PEP: Performance Enhanced Proxy;</t>
+        <t>SATCOM: SATellite COMmunications;</t>
+        <t>EPC: Evolved Packet Core;</t>
+        <t>UMTRAN: Universal Mobile Terrestrial Radio Access Network;</t>
+        <t>QoS: Quality-of-Service;</t>
+        <t>VNF: Virtualized Network Function;</t>
+	</list></t>	
+	</section>
+
+	<section anchor="subsec:intro_requi" title="Requirements Language">
+	<t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119">RFC&nbsp;2119</xref>.</t>
+	</section>
+	
+	</section>
+
+        <!-- ######################################################-->
+        <!-- ######################################################-->
+        <!-- Body of the document -->
+        <!-- ######################################################--> 
+        <!-- ######################################################--> 
+
+        <!-- ######################################################-->
+        <!-- New section -->
+        <!-- ######################################################-->
+        
+        <section anchor="sec:sat_topo" title="A note on satellite topology">
+        <t>The objective of this section of to provide a generic description of the components composing a generic satellite system and their interaction. It provides a high level description of a multi-gateway satellite network. There are multiple SATCOM systems, such as those dedicated to broadcasting TV or to IoT applications, for the ground segment may be specific. This memo focuses on SATCOM systems dedicated to Internet access that follows the DVB-S2/RCS2 documents.</t>
+        <t>In this context, <xref target="fig:sat_gateway"></xref> shows a example of a multigateway satellite system. More details on a generic SATCOM ground segment architecture for a bi-directional Internet access can be found in <xref target="SAT2017"></xref>. This architecture may be mapped to cellular networks as follows: the 'network function' block gather some of the functions of the Evolved Packet Core subsystem, while the 'access gateway' and 'physical gateway' blocks gather the same type of functions as the Universal Mobile Terrestrial Radio Access Network. This mapping extends the opportunities identified in this draft since they may be also relevant for cellular networks.</t>
+        <t>It is worth pointing out that some functionnal blocks aggregate the traffic coming from multiple users, and thus are opportunity for including network coding.</t>
+
+	<figure anchor="fig:sat_gateway" title="Data plane functions in a generic satellite multi-gateway system">
+        <artwork> 
++---------------------+ 
+| Application servers | 
++---------------------+  
+       |     |   |
+       |     |   |
+       -----------------------------------
+       v     v   v             v   v     v
++------------------+         +------------------+ 
+| network function |         | network function | 
+| (firewall, PEP)  |         | (firewall, PEP)  | 
++------------------+         +------------------+ 
+    |  |                        |        |
+    |  | IP packets             |        |
+    v  v                        v        v
++------------------+         +------------------+ 
+| access gateway   |         | access gateway   |
++------------------+         +------------------+ 
+       |                                 |
+       | BBFrames                        |
+       v                                 v
++------------------+         +------------------+ 
+| physical gateway |         | physical gateway |
++------------------+         +------------------+
+       |                                 |
+       | PLFrames                        |
+       v                                 v
++------------------+         +------------------+ 
+| outdoor unit     |         | outdoor unit     |
++------------------+         +------------------+
+   |   |                         |       |
+   |   | Satellite link          |       |
+   v   v                         v       v
++------------------+         +------------------+ 
+| sat terminals    |         | sat terminals    |
++------------------+         +------------------+
+	</artwork>
+        </figure>
+
+	</section>
+
+        <!-- ######################################################-->
+        <!-- New section -->
+        <!-- ######################################################-->
+        
+        <section anchor="sec:existing_network_coding" title="Status of network coding in actually deployed satellite systems">
+        <t> </t>
+	<t><xref target="fig:existing_network"></xref> presents the status of the network coding deployment in satellite systems. The information is based on the taxonomy document <xref target="I-D.irtf-nwcrg-network-coding-taxonomy"> </xref> and the notations are the following: End-to-End Coding (E2E), Network Coding (NC), Intra-Flow Coding (IntraF), Inter-Flow Coding (InterF), Single-Path Coding (SP)  and Multi-Path Coding (MP).</t>
+        <t>X1 embodies the source coding that could be used at application level for video streaming on a broadband access. X2 embodies the physical layer that is applied on the PLFRAME to have an optimal usage of the satellite capacity.</t>
+	<figure anchor="fig:existing_network" title="Network coding and satellite systems">
+        <artwork>
++------+-------+---------+---------------+-------+
+|      | Upper | Middle  | Communication layers  |
+|      | Appl. | ware    |                       |
++      +-------+---------+---------------+-------+
+|      |Source | Network | Packetization | PHY   |
+|      |coding | AL-FEC  | UDP/IP        | layer |
++------+-------+---------+---------------+-------+
+|E2E   |   X1  |         |               |       |
+|NC    |       |         |               |       |
+|IntraF|   X1  |         |               |       |
+|InterF|       |         |               |   X2  |
+|SP    |   X1  |         |               |   X2  |
+|MP    |       |         |               |       |
++------+-------+---------+---------------+-------+
+	</artwork>
+        </figure>
+
+	</section>
+
+        <!-- ######################################################-->
+        <!-- New section -->
+        <!-- ######################################################-->
+        
+        <section anchor="sec:opportunities_network_coding" title="Opportunities for more network coding in satellite systems">
+        <t>This section extends <xref target="sec:existing_network_coding"> </xref> by presenting the opportunities for more network coding in satellite systems.</t>
+	<t>These opportunities are further detailed in <xref target="sec:use_cases"> </xref> and listed in this section: <list style="symbols">
+	<t> (1) two way relay channel mode (more details in <xref target="subsec:two-way"> </xref>);</t>
+	<t> (2) reliable multicast (more details in <xref target="subsec:rel-mul"> </xref>);</t>
+	<t> (3) improving random access (more details in <xref target="subsec:impro-rnd"> </xref>);</t>
+	<t> (4) hybrid access (more details in <xref target="subsec:hybrid"> </xref>);</t>
+	<t> (5) Performance Enhanced Proxie (more details in <xref target="subsec:pep"> </xref>);</t>
+	</list></t>	
+
+        <t> We propose to include some of the identified opportunities in the <xref target="fig:opportunities"></xref>.</t>
+	<figure anchor="fig:opportunities" title="Opportunites for more network coding and satellite systems">
+        <artwork>
++------+-------+---------+---------------+-------+
+|      | Upper | Middle  | Communication layers  |
+|      | Appl. | ware    |                       |
++      +-------+---------+---------------+-------+
+|      |Source | Network | Packetization | PHY   |
+|      |coding | AL-FEC  | UDP/IP        | layer |
++------+-------+---------+---------------+-------+
+|E2E   |X1     |         |         (4)   |       |
+|NC    |       |(1)      |(1)(2)(3)(4)   |       |
+|IntraF|X1     |         |   (2)   (4)   |       |
+|InterF|       |(1)      |(1)   (3)      |X2     |
+|SP    |X1     |(1)      |(1)   (3)      |X2     |
+|MP    |       |         |   (2)         |       |
++------+-------+---------+---------------+-------+
+	</artwork>
+        </figure>
+
+        <t>Opportunities for more network coding in SATCOM seems to be more relevant at the middle ware or at the communication layer levels. Indeed, there are already lots of recovey mechanisms at the physical and access layers in actually deployed systems, and E2E source coding are done at the application level. In a multigateway SATCOM Internet access, the specific opportunities are more relevant in specific SATCOM components such as the middle ware and access layers, such as detailed in <xref target="sec:use_cases"> </xref>.</t> 
+ 
+	</section>
+
+        <!-- ######################################################-->
+        <!-- New section -->
+        <!-- ######################################################-->
+        
+        <section anchor="sec:use_cases" title="Details on the use cases">
+        <t>This section details use-cases where the usage of network coding schemes could improve the overall system and the deployability of the opportunities that are provided in <xref target="sec:opportunities_network_coding"></xref>.</t>
+
+       	<section anchor="subsec:two-way" title="Two way relay channel mode">
+	<t>TBD</t>
+	</section>	
+
+       	<section anchor="subsec:rel-mul" title="Reliable multicast">
+	<t>TBD</t>
+	</section>	
+
+       	<section anchor="subsec:impro-rnd" title="Improving random access">
+	<t>TBD</t>
+	</section>	
+
+       	<section anchor="subsec:hybrid" title="Hybrid access">
+	<t>TBD</t>
+	</section>	
+
+       	<section anchor="subsec:pep" title="Performance Enhanced Proxy">
+	<t>Related to the impact and integration of network coding in Proxy-Enhanced-Proxy <xref target="RFC3135">RFC&nbsp;3135</xref> architecture. In particular how network coding can be integrated inside a PEP with QoS scheduler as defined, for instance, in <xref target="RFC5865">RFC&nbsp;5865</xref>.</t>
+	</section>	
+
+</section>
+
+        <!-- ######################################################-->
+        <!-- New section -->
+        <!-- ######################################################-->
+        
+        <section anchor="sec:deploy" title="Discussion on the deployability">
+        <t>This section discusses the deployability of the opportunities that are provided in <xref target="sec:opportunities_network_coding"></xref>. Related to the foreseen virtualized network infrastructure, the network coding schemes could be proposed as VNF and their deployability enhanced.</t>
+        <t>The architecture for the next generation of SATCOM ground segments would rely on a virtualized environment. This trend can also be seen, making the discussions on the deployability of network coding in SATCOM extendable to other deployment scenarios <xref target="I-D.chin-nfvrg-cloud-5g-core-structure-yang"> </xref>. As one example, the network coding VNF functions deployment in a virtualized environment is presented in <xref target="I-D.vazquez-nfvrg-netcod-function-virtualization"> </xref>.</t>
+	</section>
+
+        <!-- ######################################################-->
+        <!-- ######################################################-->
+        <!-- Tail of the document -->
+        <!-- ######################################################--> 
+        <!-- ######################################################--> 
+
+	<section anchor="sec:acknowledgements" title="Acknowledgements">
+	<t> </t>
+	</section>
+
+	<section anchor="sec:contributors" title="Contributors">
+	<t> Many thanks to </t>
+	</section>
+
+	<section anchor="sec:IANA" title="IANA Considerations">
+	<t>This memo includes no request to IANA.</t>
+	</section>
+
+	<section anchor="sec:ecurity" title="Security Considerations">
+	<t>This document, by itself, presents no new privacy nor security issues.<!--See <xref target="RFC3552">RFC 3552</xref> for a guide.--></t>
+	</section>
+	</middle>
+
+	<!--  *****BACK MATTER ***** -->
+	<back>
+	<!-- References split into informative and normative -->
+	<!-- There are 2 ways to insert reference entries from the citation libraries:
+	1. define an ENTITY at the top, and use "ampersand character"RFC2629; here (as shown)
+	2. simply use a PI "less than character"?rfc include="reference.RFC.2119.xml"?> here
+	(for I-Ds: include="reference.I-D.narten-iana-considerations-rfc2434bis.xml")
+
+	Both are cited textually in the same manner: by using xref elements.
+	If you use the PI option, xml2rfc will, by default, try to find included files in the same
+	directory as the including file. You can also define the XML_LIBRARY environment variable
+	with a value containing a set of directories to search.  These can be either in the local
+	filing system or remote ones accessed by http (http://domain/dir/... ).-->
+
+	<references title="Normative References">
+		&RFC2119;
+		<?rfc include="reference.RFC.3135.xml"?> 
+		<?rfc include="reference.RFC.5865.xml"?> 
+	</references>
+
+	<references title="Informative References">
+        	<?rfc include="reference.I-D.irtf-nwcrg-network-coding-taxonomy.xml"?>
+        	<?rfc include="reference.I-D.chin-nfvrg-cloud-5g-core-structure-yang.xml"?>
+        	<?rfc include="reference.I-D.vazquez-nfvrg-netcod-function-virtualization.xml"?>
+                <reference anchor="SAT2017">
+                    <front>
+                    <title>FavorQueue: a Parameterless Active Queue Management to Improve TCP Traffic Performance</title>
+                    <author initials="T" surname="Ahmed">
+                    </author>
+                    <author initials="E" surname="Dubois">
+                    </author>
+                    <author initials="JB" surname="Dupe">
+                    </author>
+                    <author initials="R" surname="Ferrus">
+                    </author>
+                    <author initials="P" surname="Gelard">
+                    </author>
+                    <author initials="N" surname="Kuhn">
+                    </author>
+                    <date year="2017" />
+                    </front>
+                    <seriesInfo name="Int. J. Satell. Commun. Network." value="vol. 36" />
+                </reference>
+       	</references>
+	</back>
+</rfc>
