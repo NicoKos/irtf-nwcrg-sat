@@ -43,7 +43,7 @@
     </author>
    
     <author role="editor" fullname="Emmanuel Lochin" initials="E" surname="Lochin">
-      <organization>ISAE</organization>
+      <organization>ISAE-SUPAERO</organization>
       <address>
         <postal>
           <street>10 Avenue Edouard Belin</street>
@@ -53,7 +53,7 @@
           <country>France</country>
         </postal>
         <phone></phone>
-        <email>emmanuel.lochin@isae.fr</email>
+        <email>emmanuel.lochin@isae-supaero.fr</email>
       </address>
     </author>
 
@@ -158,11 +158,11 @@
   <middle>
 
 	<section anchor="sec:introduction" title="Introduction">
-        <t>Network coding schemes are inherent part of the satellite systems, since the challenging physical layer require specific robustness to guarantee an efficient usage of the expensive radio resource. Further exploiting these schemes is an opportunity for a better end user experience along with a better exploitation of the scarce resource.</t>
+        <t>Network coding schemes are inherent part of the satellite systems as the physical layer requires specific robustness to guarantee an efficient usage of the expensive radio resource. Further exploiting these schemes is an opportunity for a better end-user experience along with a better exploitation of the scarce resource.</t>
 	<t>In this context, this memo aims at:</t>
 	<t><list style="symbols">
-	<t>summing up the current deployment of network coding schemes;</t>
-	<t>identifying opportunities for further usage of network coding in satellite systems.</t>
+	<t>summing up the current deployment of network coding schemes over LEO and GEO satellite systems;</t>
+	<t>identifying opportunities for further usage of network coding in these systems.</t>
 	</list></t>	
 		
 	<section anchor="subsec:intro_glossary" title="Glossary">
@@ -175,7 +175,9 @@
         <t>EPC: Evolved Packet Core;</t>
         <t>UMTRAN: Universal Mobile Terrestrial Radio Access Network;</t>
         <t>QoS: Quality-of-Service;</t>
+        <t>QoE: Quality-of-Experience;</t>
         <t>VNF: Virtualized Network Function;</t>
+        <t>DTN: Delay Tolerant Network.</t>
 	</list></t>	
 	</section>
 
@@ -196,9 +198,9 @@
         <!-- ######################################################-->
         
         <section anchor="sec:sat_topo" title="A note on satellite topology">
-        <t>The objective of this section of to provide a generic description of the components composing a generic satellite system and their interaction. It provides a high level description of a multi-gateway satellite network. There are multiple SATCOM systems, such as those dedicated to broadcasting TV or to IoT applications, for the ground segment may be specific. This memo focuses on SATCOM systems dedicated to Internet access that follows the DVB-S2/RCS2 documents.</t>
-        <t>In this context, <xref target="fig:sat_gateway"></xref> shows a example of a multigateway satellite system. More details on a generic SATCOM ground segment architecture for a bi-directional Internet access can be found in <xref target="SAT2017"></xref>. This architecture may be mapped to cellular networks as follows: the 'network function' block gather some of the functions of the Evolved Packet Core subsystem, while the 'access gateway' and 'physical gateway' blocks gather the same type of functions as the Universal Mobile Terrestrial Radio Access Network. This mapping extends the opportunities identified in this draft since they may be also relevant for cellular networks.</t>
-        <t>It is worth pointing out that some functionnal blocks aggregate the traffic coming from multiple users, and thus are opportunity for including network coding.</t>
+        <t>The objective of this section is to provide both a generic description of the components composing a generic satellite system and their interaction. It provides a high level description of a multi-gateway satellites network. There exist multiple SATCOM systems, such as those dedicated to broadcasting TV or to IoT applications, ** EL: problem with the following sentence ** for the ground segment may be specific. This memo lays on SATCOM systems dedicated to Internet access that follows the DVB-S2/RCS2 documents.</t>
+        <t>In this context, <xref target="fig:sat_gateway"></xref> shows an example of a multigateway satellite system. More details on a generic SATCOM ground segment architecture for a bi-directional Internet access can be found in <xref target="SAT2017"></xref>. This architecture may be mapped to cellular networks as follows: the 'network function' block gather some of the functions of the Evolved Packet Core subsystem, while the 'access gateway' and 'physical gateway' blocks gather the same type of functions as the Universal Mobile Terrestrial Radio Access Network. This mapping extends the opportunities identified in this draft since they may be also relevant for cellular networks.</t>
+        <t>It is worth noting that some functionnal blocks aggregate the traffic coming from multiple users, allowing the deployment of network coding schemes. </t>
 
 	<figure anchor="fig:sat_gateway" title="Data plane functions in a generic satellite multi-gateway system">
         <artwork> 
@@ -249,7 +251,7 @@
         <section anchor="sec:existing_network_coding" title="Status of network coding in actually deployed satellite systems">
         <t> </t>
 	<t><xref target="fig:existing_network"></xref> presents the status of the network coding deployment in satellite systems. The information is based on the taxonomy document <xref target="I-D.irtf-nwcrg-network-coding-taxonomy"> </xref> and the notations are the following: End-to-End Coding (E2E), Network Coding (NC), Intra-Flow Coding (IntraF), Inter-Flow Coding (InterF), Single-Path Coding (SP)  and Multi-Path Coding (MP).</t>
-        <t>X1 embodies the source coding that could be used at application level for video streaming on a broadband access. X2 embodies the physical layer that is applied on the PLFRAME to have an optimal usage of the satellite capacity.</t>
+        <t>X1 embodies the source coding that could be used at application level for instance: for video streaming on a broadband access. X2 embodies the physical layer, applied to the PLFRAME, to optimize the satellite capacity usage.</t>
 	<figure anchor="fig:existing_network" title="Network coding and satellite systems">
         <artwork>
 +------+-------+---------+---------------+-------+
@@ -276,9 +278,9 @@
         <!-- ######################################################-->
         
         <section anchor="sec:opportunities_network_coding" title="Opportunities for more network coding in satellite systems">
-        <t>This section extends <xref target="sec:existing_network_coding"> </xref> by presenting the opportunities for more network coding in satellite systems.</t>
+        <t>This section extends <xref target="sec:existing_network_coding"> </xref> by presenting potential opportunities for the deploymet of network coding schemes inside satellite systems.</t>
 	<t>These opportunities are further detailed in <xref target="sec:use_cases"> </xref> and listed in this section: <list style="symbols">
-	<t> (1) two way relay channel mode (more details in <xref target="subsec:two-way"> </xref>);</t>
+	<t> (1) two ways relay channel mode (more details in <xref target="subsec:two-way"> </xref>);</t>
 	<t> (2) reliable multicast (more details in <xref target="subsec:rel-mul"> </xref>);</t>
 	<t> (3) improving random access (more details in <xref target="subsec:impro-rnd"> </xref>);</t>
 	<t> (4) hybrid access (more details in <xref target="subsec:hybrid"> </xref>);</t>
@@ -306,7 +308,7 @@
 	</artwork>
         </figure>
 
-        <t>Opportunities for more network coding in SATCOM seems to be more relevant at the middle ware or at the communication layer levels. Indeed, there are already lots of recovey mechanisms at the physical and access layers in actually deployed systems, and E2E source coding are done at the application level. In a multigateway SATCOM Internet access, the specific opportunities are more relevant in specific SATCOM components such as the middle ware and access layers, such as detailed in <xref target="sec:use_cases"> </xref>.</t> 
+        <t>Opportunities for more network coding in SATCOM seems to be more relevant at the ** EL: need to define between each layers this middleware is positionned ** middleware or at the communication layer levels. Actually, there are already lot of recovery mechanisms at the physical and access layers in currently deployed systems while E2E source coding are done at the application level. In a multigateway SATCOM Internet access, the specific opportunities are more relevant in specific SATCOM components such as the ** EL: to discuss "middleware" ** middleware and access layers, such as detailed in <xref target="sec:use_cases"> </xref>.</t> 
  
 	</section>
 
@@ -315,7 +317,7 @@
         <!-- ######################################################-->
         
         <section anchor="sec:use_cases" title="Details on the use cases">
-        <t>This section details use-cases where the usage of network coding schemes could improve the overall system and the deployability of the opportunities that are provided in <xref target="sec:opportunities_network_coding"></xref>.</t>
+        <t>This section details use-cases where network coding schemes could improve the ** EL: "proposes this modification" ** overall performance in terms of delivery delay and/or delivery ratio and the deployability of the opportunities that are provided in <xref target="sec:opportunities_network_coding"></xref>.</t>
 
        	<section anchor="subsec:two-way" title="Two way relay channel mode">
 	<t>TBD</t>
@@ -352,6 +354,10 @@
 
        	<section anchor="subsec:pep" title="Performance Enhanced Proxy">
 	<t>Related to the impact and integration of network coding in Proxy-Enhanced-Proxy <xref target="RFC3135">RFC&nbsp;3135</xref> architecture. In particular how network coding can be integrated inside a PEP with QoS scheduler as defined, for instance, in <xref target="RFC5865">RFC&nbsp;5865</xref>.</t>
+	</section>	
+       	
+	<section anchor="subsec:dtn" title="Delay Tolerant Network architecture">
+	<t>** EL: ** TBD with bundle layer as a candidate for NC</t>
 	</section>	
 
        	<section anchor="subsec:varying" title="Dealing with varying capacity">
@@ -419,7 +425,7 @@
         	<?rfc include="reference.I-D.vazquez-nfvrg-netcod-function-virtualization.xml"?>
                 <reference anchor="SAT2017">
                     <front>
-                    <title>FavorQueue: a Parameterless Active Queue Management to Improve TCP Traffic Performance</title>
+                    <title>Software-defined satellite cloud RAN</title>
                     <author initials="T" surname="Ahmed">
                     </author>
                     <author initials="E" surname="Dubois">
