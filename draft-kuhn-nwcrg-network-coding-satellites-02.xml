@@ -251,7 +251,7 @@
         <section anchor="sec:existing_network_coding" title="Status of network coding in actually deployed satellite systems">
         <t> </t>
 	<t><xref target="fig:existing_network"></xref> presents the status of the network coding deployment in satellite systems. The information is based on the taxonomy document <xref target="I-D.irtf-nwcrg-network-coding-taxonomy"> </xref> and the notations are the following: End-to-End Coding (E2E), Network Coding (NC), Intra-Flow Coding (IntraF), Inter-Flow Coding (InterF), Single-Path Coding (SP)  and Multi-Path Coding (MP).</t>
-        <t>X1 embodies the source coding that could be used at application level for instance: for video streaming on a broadband access. X2 embodies the physical layer, applied to the PLFRAME, to optimize the satellite capacity usage.</t>
+        <t>X1 embodies the source coding that could be used at application level for instance: for video streaming on a broadband access. X2 embodies the physical layer, applied to the PLFRAME, to optimize the satellite capacity usage. Furthermore, at the physical layer and when random accesses are exploited, FEC mechanisms are exploited.</t>
 	<figure anchor="fig:existing_network" title="Network coding and satellite systems">
         <artwork>
 +------+-------+---------+---------------+-------+
@@ -279,13 +279,13 @@
         
         <section anchor="sec:opportunities_network_coding" title="Opportunities for more network coding in satellite systems">
         <t>This section extends <xref target="sec:existing_network_coding"> </xref> by presenting potential opportunities for the deploymet of network coding schemes inside satellite systems.</t>
-	<t>These opportunities are further detailed in <xref target="sec:use_cases"> </xref> and listed in this section: <list style="symbols">
-	<t> (1) two ways relay channel mode (more details in <xref target="subsec:two-way"> </xref>);</t>
-	<t> (2) reliable multicast (more details in <xref target="subsec:rel-mul"> </xref>);</t>
-	<t> (3) improving random access (more details in <xref target="subsec:impro-rnd"> </xref>);</t>
-	<t> (4) hybrid access (more details in <xref target="subsec:hybrid"> </xref>);</t>
-	<t> (5) Performance Enhanced Proxie (more details in <xref target="subsec:pep"> </xref>);</t>
-	<t> (6) Dealing with varying capacity (more details in <xref target="subsec:varying"> </xref>);</t>
+	<t>These opportunities are further detailed in <xref target="sec:use_cases"> </xref> and listed in this section: <list style="numbers">
+	<t>Two ways relay channel mode (more details in <xref target="subsec:two-way"> </xref>);</t>
+	<t>Reliable multicast (more details in <xref target="subsec:rel-mul"> </xref>);</t>
+	<t>Hybrid access (more details in <xref target="subsec:hybrid"> </xref>);</t>
+	<t>Performance Enhanced Proxie (more details in <xref target="subsec:pep"> </xref>);</t>
+	<t>Delay Tolerant Network architecture (more details in <xref target="subsec:dtn"> </xref>);</t>
+	<t>Dealing with varying capacity (more details in <xref target="subsec:varying"> </xref>);</t>
 	</list></t>	
 
         <t> We propose to include some of the identified opportunities in the <xref target="fig:opportunities"></xref>.</t>
@@ -320,19 +320,19 @@
         <t>This section details use-cases where network coding schemes could improve the ** EL: "proposes this modification" ** overall performance in terms of delivery delay and/or delivery ratio and the deployability of the opportunities that are provided in <xref target="sec:opportunities_network_coding"></xref>.</t>
 
        	<section anchor="subsec:two-way" title="Two way relay channel mode">
-	<t>TBD</t>
-        <t> We propose an illustration of this scenario in <xref target="fig:two_way"></xref>.</t>
+	<t>This use-case considers a two-way communication between end users, through a satellite link. We propose an illustration of this scenario in <xref target="fig:two_way"></xref>.</t>
+        <t>Satellite terminal A (resp. B) transmits a flow A (resp. B) to a server hosting NC capabilities, which forward a combination of the two flows to both terminals. This results in non-neglectible bandwidth saving and has been demonstrated at ASMS 2010 in Cagliari.</t>
         <figure anchor="fig:two_way" title="Network architecture for two way relay channel with NC">
         <artwork>
 +------------+        +-----+     +---------+
 | Satellite  |  A     |     | A   |         |
-| Terminal A |-->--|  |     |->---|         |
-+------------+     |  |     |->---|         |
-    ||  A+B        ->-| SAT | B   | Gateway |
-    ==================|     |     |         |
-    ||             ->-|     |     |         |
-+------------+  B  |>-|     |=====|         |
-| Satellite  |-->--|  |     | A+B |         |
+| Terminal A |-->--|  |     |->---|         |  +------+
++------------+     |  |     |->---|         |  |      |
+    ||  A+B        ->-| SAT | B   | Gateway |  |      |
+    ==================|     |     |         |--|Server|
+    ||             ->-|     |     |         |  |      |
++------------+  B  |>-|     |=====|         |  |      |
+| Satellite  |-->--|  |     | A+B |         |  +------+
 | Terminal B |        |     |     |         |
 +------------+        +-----+     +---------+
         </artwork>
@@ -341,15 +341,11 @@
 	</section>	
 
        	<section anchor="subsec:rel-mul" title="Reliable multicast">
-	<t>TBD</t>
-	</section>	
-
-       	<section anchor="subsec:impro-rnd" title="Improving random access">
-	<t>TBD</t>
+	<t>This use-case considers adding redundancy to a multicast flow depending on what has been received by different end-users, resulting in non-neglectable scarce resource saving.</t>
 	</section>	
 
        	<section anchor="subsec:hybrid" title="Hybrid access">
-	<t>TBD</t>
+	<t>This use-case considers the use of multiple path management with network coding at the transport level.</t>
 	</section>	
 
        	<section anchor="subsec:pep" title="Performance Enhanced Proxy">
@@ -363,7 +359,6 @@
        	<section anchor="subsec:varying" title="Dealing with varying capacity">
 	<t>TBD</t>
 	</section>	
-
 
 </section>
 
