@@ -57,67 +57,7 @@
       </address>
     </author>
 
-   <author fullname="Harald Skinnemoen" initials="H" surname="Skinnemoen">
-      <organization>AnsuR Technologies</organization>
-      <address>
-        <postal>
-          <street>Martin Linges Vei 25</street>
-          <city>Fornebu</city>
-          <region></region>
-          <code>1364</code>
-          <country>Norway</country>
-        </postal>
-        <phone></phone>
-        <email>harald@ansur.no</email>
-      </address>
-    </author>
-
-   <author fullname="Samah A. M. Ghanem" initials="S" surname="Ghanem">
-      <organization>Independent Senior Researcher</organization>
-      <address>
-        <postal>
-          <street></street>
-          <city>West Bank</city>
-          <region></region>
-          <code></code>
-          <country>Palestine</country>
-        </postal>
-        <phone></phone>
-        <email>samah.ghanem@gmail.com</email>
-      </address>
-    </author>
-	 
-   <author fullname="Josu Bilbao" initials="J" surname="Bilbao">
-      <organization>Ikerlan</organization>
-      <address>
-        <postal>
-          <street></street>
-          <city></city>
-          <region></region>
-          <code></code>
-          <country>Spain</country>
-        </postal>
-        <phone></phone>
-        <email>JBilbao@ikerlan.es</email>
-      </address>
-    </author>
-	  
-   <author fullname="Goiuri Peralta" initials="G" surname="Peralta">
-      <organization>Ikerlan</organization>
-      <address>
-        <postal>
-          <street></street>
-          <city></city>
-          <region></region>
-          <code></code>
-          <country>Spain</country>
-        </postal>
-        <phone></phone>
-        <email>gperalta@ikerlan.es</email>
-      </address>
-    </author>
-	  
-    <date month="October" year="2017" />
+    <date month="February" year="2018" />
 
     <!-- If the month and year are both specified and are the current ones, xml2rfc will fill 
          in the current day for you. If only the current year is specified, xml2rfc will fill 
