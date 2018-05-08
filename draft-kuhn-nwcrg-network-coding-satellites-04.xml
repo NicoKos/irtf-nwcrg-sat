@@ -109,17 +109,18 @@
 	<t>The glossary of this memo is related to the network coding taxonomy document <xref target="I-D.irtf-nwcrg-network-coding-taxonomy"> </xref>.</t> 
 	<t>The glossary is extended as follows:<list style="symbols">
 	<t>BBFRAME: Base-Band FRAME;</t>
-	<t>PLFRAME: Physical Layer FRAME;</t>
-        <t>PEP: Performance Enhanced Proxy;</t>
-        <t>SATCOM: SATellite COMmunications;</t>
+        <t>CPE: Customer Premise Equipment;</t>
+        <t>DSN: Deep Space Network;</t>
+        <t>DTN: Delay Tolerant Network;</t>
         <t>EPC: Evolved Packet Core;</t>
+        <t>ETSI: European Telecommunications Standards Institute;</t>
+        <t>PEP: Performance Enhanced Proxy;</t>
+	<t>PLFRAME: Physical Layer FRAME;</t>
+        <t>SATCOM: SATellite COMmunications;</t>
         <t>UMTRAN: Universal Mobile Terrestrial Radio Access Network;</t>
         <t>QoS: Quality-of-Service;</t>
         <t>QoE: Quality-of-Experience;</t>
-        <t>VNF: Virtualized Network Function;</t>
-        <t>CPE: Customer Premise Equipment;</t>
-        <t>ETSI: European Telecommunications Standards Institute;</t>
-        <t>DTN: Delay Tolerant Network.</t>
+        <t>VNF: Virtualized Network Function.</t>
 	</list></t>	
 	</section>
 
